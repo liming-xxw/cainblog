@@ -89,7 +89,7 @@ onMounted(() => {
             <v-sheet class="mx-auto" style="width: 100%">
               <v-slide-group show-arrows>
                 <v-slide-group-item
-                  v-for="n in 25"
+                  v-for="n in 7"
                   :key="n"
                   v-slot="{ isSelected, toggle }"
                 >
@@ -107,7 +107,7 @@ onMounted(() => {
                       <v-card-title>Top 10 Australian beaches</v-card-title>
                     </v-img>
 
-                    <v-card-subtitle class="pt-4"> Number 10 </v-card-subtitle>
+                    <v-card-subtitle class="pt-4"> 九天前 </v-card-subtitle>
 
                     <v-card-text>
                       <div>Whitehaven Beach</div>
@@ -116,9 +116,7 @@ onMounted(() => {
                     </v-card-text>
 
                     <v-card-actions>
-                      <v-btn color="orange"> Share </v-btn>
-
-                      <v-btn color="orange"> Explore </v-btn>
+                      <v-btn color="orange"> 阅读博客 </v-btn>
                     </v-card-actions>
                   </v-card>
                 </v-slide-group-item>
@@ -128,10 +126,16 @@ onMounted(() => {
         </div>
       </v-container>
     </v-main>
+    <layout-footer></layout-footer>
   </div>
 </template>
 
 <style lang="scss" scoped>
+::v-deep .v-slide-group__content {
+  box-sizing: border-box;
+  padding: 5px 5px;
+  gap: 10px !important;
+}
 .header {
   width: 100%;
   box-sizing: border-box;
@@ -209,7 +213,7 @@ onMounted(() => {
   padding: 70px 30px 70px 70px;
   border-radius: 20px;
   border: 1px rgba(0, 0, 0, 0.12) solid;
-  margin-top: 50px;
+  margin-top: 100px;
   display: flex;
   .c-newblog-left {
     flex: 0 0 25%;
@@ -218,7 +222,7 @@ onMounted(() => {
     }
     p {
       margin-top: 10px;
-      font-size: 18px;
+      font-size: 14px;
     }
     .c-newblog-btn {
       margin-top: 40px;
