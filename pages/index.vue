@@ -205,6 +205,7 @@ onMounted(() => {
 .c-main {
   display: flex;
   padding: 0px 100px;
+  gap: 80px;
   .c-main-left {
     flex: 0 0 50%;
     box-sizing: border-box;

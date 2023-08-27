@@ -18,8 +18,12 @@ const appbar_list = ref<AppBar[]>([
     name: "视频",
   },
   {
-    url: "/open",
+    url: "/opens",
     name: "开源项目",
+  },
+  {
+    url: "/links",
+    name: "友情链接",
   },
   {
     url: "/x",
