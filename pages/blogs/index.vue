@@ -7,7 +7,7 @@ const items = [
 </script>
 
 <template>
-  <v-container class="d-flex justify-space-between" style="gap: 20px">
+  <v-container class="d-flex justify-space-between blogs-box" style="gap: 20px">
     <div class="blogs-left">
       <v-card class="user-card">
         <div class="about_info">
@@ -56,7 +56,10 @@ const items = [
           </v-list-item>
         </v-list>
       </v-card>
-      <v-card class="blogs-tags mt-4 d-flex" style="gap: 5px;padding: 15px;flex-wrap: wrap;">
+      <v-card
+        class="blogs-tags mt-4 d-flex"
+        style="gap: 5px; padding: 15px; flex-wrap: wrap"
+      >
         <div v-for="n in 10" :key="n">
           <v-chip size="small" label color="cainblue"> Vue.js </v-chip>
         </div>
@@ -147,94 +150,123 @@ const items = [
 </template>
 
 <style lang="scss" scoped>
-.blogs-left {
-  width: 23%;
-
-  .user-card {
-    box-sizing: border-box;
-    padding: 20px;
-    .about_info {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      .AvatarBox {
-        transition: 0.6s;
-        width: 70px;
-        height: 70px;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+.blogs-box {
+  @media (max-width: 1270px) {
+    flex-wrap: wrap;
+    .blogs-left {
+      order: 2;
+      width: 100% !important;
+      .user-card {
+        display: none;
       }
-      .about_info_text {
-        margin-top: 5px;
-        text-align: center;
-        font-size: 14px;
+      .special-column {
+        display: none;
+      }
+      .blogs-tags {
+        margin-top: 0px !important;
       }
     }
-    .user-tags {
-      margin-top: 10px;
-      text-align: center;
-      h4 {
-        font-size: 14px;
-      }
-      p {
-        color: rgba(0, 0, 0, 0.6);
-        font-size: 12px;
+    .blogs-content {
+      order: 3;
+      width: 100% !important;
+    }
+    .blogs-right {
+      order: 1;
+      width: 100% !important;
+      .newblogs {
+        display: none;
       }
     }
   }
-}
+  .blogs-left {
+    width: 23%;
 
-.blogs-content {
-  width: 54%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  .blog-card {
-    box-sizing: border-box;
-    padding: 20px;
-    cursor: pointer;
-    transition: 0.9s;
-    &:hover {
-      background: linear-gradient(
-        to right,
-        rgba(0, 0, 255, 0.3) 0%,
-        rgba(255, 255, 255, 0) 50%,
-        rgba(0, 0, 255, 0.3) 100%
-      );
-    }
-    .blog-card-box {
-      gap: 20px;
-      .blog-card-dosc-p {
-        font-size: 14px;
-        margin-top: 5px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box; //作为弹性伸缩盒子模型显示。
-        -webkit-box-orient: vertical; //设置伸缩盒子的子元素排列方式--从上到下垂直排列
-        -webkit-line-clamp: 2;
-      }
-      .blog-card-tags {
-        margin-top: 5px;
-
-        font-size: 12px;
+    .user-card {
+      box-sizing: border-box;
+      padding: 20px;
+      .about_info {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        gap: 10px;
-        color: rgba(0, 0, 0, 0.6);
-
-        .blog-card-tag {
+        .AvatarBox {
+          transition: 0.6s;
+          width: 70px;
+          height: 70px;
+          position: relative;
           display: flex;
           align-items: center;
-          gap: 5px;
+          justify-content: center;
+        }
+        .about_info_text {
+          margin-top: 5px;
+          text-align: center;
+          font-size: 14px;
+        }
+      }
+      .user-tags {
+        margin-top: 10px;
+        text-align: center;
+        h4 {
+          font-size: 14px;
+        }
+        p {
+          color: rgba(0, 0, 0, 0.6);
+          font-size: 12px;
         }
       }
     }
   }
-}
 
-.blogs-right {
-  width: 23%;
+  .blogs-content {
+    width: 54%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .blog-card {
+      box-sizing: border-box;
+      padding: 20px;
+      cursor: pointer;
+      transition: 0.9s;
+      &:hover {
+        background: linear-gradient(
+          to right,
+          rgba(0, 0, 255, 0.3) 0%,
+          rgba(255, 255, 255, 0) 50%,
+          rgba(0, 0, 255, 0.3) 100%
+        );
+      }
+      .blog-card-box {
+        gap: 20px;
+        .blog-card-dosc-p {
+          font-size: 14px;
+          margin-top: 5px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box; //作为弹性伸缩盒子模型显示。
+          -webkit-box-orient: vertical; //设置伸缩盒子的子元素排列方式--从上到下垂直排列
+          -webkit-line-clamp: 2;
+        }
+        .blog-card-tags {
+          margin-top: 5px;
+
+          font-size: 12px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          color: rgba(0, 0, 0, 0.6);
+
+          .blog-card-tag {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  .blogs-right {
+    width: 23%;
+  }
 }
 </style>

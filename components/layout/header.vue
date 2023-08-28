@@ -30,14 +30,28 @@ const appbar_list = ref<AppBar[]>([
     name: "归档",
   },
 ]);
+
+const drawer = ref<boolean>(false);
 </script>
 
 <template>
+  <v-navigation-drawer v-model="drawer" location="left" temporary>
+    <v-list nav density="compact">
+      <v-list-item
+        v-for="item in appbar_list"
+        :key="item.url"
+        :value="item.url"
+        :to="item.url"
+      >
+        <span style="font-size: 14px">{{ item.name }}</span>
+      </v-list-item>
+    </v-list>
+  </v-navigation-drawer>
   <v-app-bar flat border>
     <div class="header">
       <div class="header_nav">
         <div class="dancing logoFont">CainBlog</div>
-        <div>
+        <div class="header_nav_btn">
           <v-btn
             v-for="(item, index) in appbar_list"
             :key="index"
@@ -45,6 +59,9 @@ const appbar_list = ref<AppBar[]>([
             exact
             >{{ item.name }}</v-btn
           >
+        </div>
+        <div class="header_menu_btn">
+          <v-btn icon="mdi-menu" @click="drawer = true"></v-btn>
         </div>
       </div>
       <div>
@@ -61,10 +78,21 @@ const appbar_list = ref<AppBar[]>([
   padding: 0px 20px;
   display: flex;
   justify-content: space-between;
+  @media (max-width: 900px) {
+    .header_nav_btn {
+      display: none;
+    }
+    .header_menu_btn {
+      display: block !important;
+    }
+  }
   .header_nav {
     display: flex;
     align-items: center;
     gap: 20px;
+    .header_menu_btn {
+      display: none;
+    }
     .logoFont {
       font-size: 26px;
       color: #154599;

@@ -106,7 +106,7 @@ onMounted(() => {
           </v-sheet>
         </div>
       </div>
-      <div class="c-newcard" style="padding: 70px 70px 70px 30px">
+      <div class="c-newvideocard" style="padding: 70px 70px 70px 30px">
         <div class="c-newblog-right">
           <v-sheet class="mx-auto" style="width: 100%">
             <v-slide-group show-arrows>
@@ -181,35 +181,94 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
+@media (max-width: 1280px) {
+  .c-main {
+    flex-wrap: wrap;
+    gap: 0px !important;
+    padding: 0px !important;
+    .c-main-left {
+      order: 1;
+      flex: 0 0 100% !important;
+      padding: 50px !important;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .cainjieshao {
+        margin-top: 5px !important;
+      }
+      .cainBtn {
+        margin-top: 5px !important;
+      }
+    }
+    .c-main-right {
+      order: 2;
+      padding-top: 0px !important;
+      flex: 0 0 40% !important;
+      margin: 0 auto;
+    }
+  }
+  .c-newcard {
+    flex-wrap: wrap;
+    padding: 20px !important;
+    .c-newblog-right {
+      width: 100% !important;
+    }
+    .c-newblog-left {
+      width: 100% !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      p {
+        margin-top: 10px !important;
+      }
+      .c-newblog-btn {
+        margin-top: 10px !important;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  .c-newvideocard {
+    flex-wrap: wrap;
+    padding: 20px !important;
+    .c-newblog-right {
+      order: 2;
+      width: 100% !important;
+    }
+    .c-newblog-left {
+      order: 1;
+      width: 100% !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      p {
+        margin-top: 10px !important;
+      }
+      .c-newblog-btn {
+        margin-top: 10px !important;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .c-opencode-item {
+    flex: 0 0 100% !important;
+  }
+}
 ::v-deep .v-slide-group__content {
   box-sizing: border-box;
   padding: 5px 5px;
   gap: 10px !important;
 }
-.header {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 0px 20px;
-  display: flex;
-  justify-content: space-between;
-  .header_nav {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    .logoFont {
-      font-size: 26px;
-      color: #154599;
-    }
-  }
-}
 .c-main {
   display: flex;
-  padding: 0px 100px;
-  gap: 80px;
+  padding: 0px 114px 0px 24px;
+  gap: 50px;
   .c-main-left {
     flex: 0 0 50%;
     box-sizing: border-box;
     padding-top: 120px;
+
     .cain-docs {
       font-size: 40px;
       .cainlogodosc {
@@ -258,6 +317,32 @@ onMounted(() => {
   }
 }
 
+.c-newvideocard {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 70px 30px 70px 70px;
+  border-radius: 20px;
+  border: 1px rgba(0, 0, 0, 0.12) solid;
+  margin-top: 100px;
+  display: flex;
+  .c-newblog-left {
+    width: 25%;
+    h4 {
+      font-size: 40px;
+    }
+    p {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    .c-newblog-btn {
+      margin-top: 40px;
+    }
+  }
+  .c-newblog-right {
+    position: relative;
+    width: 75%;
+  }
+}
 .c-newcard {
   width: 100%;
   box-sizing: border-box;
@@ -267,7 +352,7 @@ onMounted(() => {
   margin-top: 100px;
   display: flex;
   .c-newblog-left {
-    flex: 0 0 25%;
+    width: 25%;
     h4 {
       font-size: 40px;
     }
